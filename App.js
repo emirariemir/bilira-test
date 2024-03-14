@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Dimensions, Image, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import colors from './assets/colors/colors';
 import CircleButton from './assets/components/circle-button';
+import CoinCard from './assets/components/coin-card';
 
 export default function App() {
   return (
@@ -75,7 +76,21 @@ export default function App() {
         </View>
       </View>
 
-      <View style={styles.coinsView}></View>
+      {/* COINS VIEW STARTS HERE ! */}
+      <View style={styles.coinsView}>
+        <SafeAreaView>
+          <ScrollView>
+            <CoinCard coinTag={'ETH'} coinName={'Ethereum'} graphName={'trending-up'} graphColor={colors.primaryGreen} price={'2,208.00'} arrowIconName={'arrow-up-right'} percentage={'%2.68'} />
+            <CoinCard coinTag={'AVAX'} coinName={'Avalanche'} graphName={'trending-down'} graphColor={colors.red} price={'225.71'} arrowIconName={'arrow-down-right'} percentage={'%1.60'} />
+            <CoinCard coinTag={'MATIC'} coinName={'Polygon'} graphName={'trending-up'} graphColor={colors.primaryGreen} price={'15.21'} arrowIconName={'arrow-up-right'} percentage={'%0.73'} />
+            <CoinCard coinTag={'SOL'} coinName={'Solana'} graphName={'trending-up'} graphColor={colors.primaryGreen} price={'167.26'} arrowIconName={'arrow-up-right'} percentage={'%6.54'} />
+            <CoinCard coinTag={'BTC'} coinName={'Bitcoin'} graphName={'trending-down'} graphColor={colors.red} price={'70,786.00'} arrowIconName={'arrow-down-right'} percentage={'%2.63'} />
+            <CoinCard coinTag={'TRX'} coinName={'Tron'} graphName={'trending-down'} graphColor={colors.red} price={'0.13'} arrowIconName={'arrow-down-right'} percentage={'%2.03'} />
+            <CoinCard coinTag={'ADA'} coinName={'Cardano'} graphName={'trending-up'} graphColor={colors.primaryGreen} price={'0.74'} arrowIconName={'arrow-up-right'} percentage={'%0.12'} />
+          </ScrollView>
+        </SafeAreaView>
+      </View>
+
     </View>
   );
 }
@@ -264,7 +279,7 @@ const styles = StyleSheet.create({
   // 6 ---------------------------------------------
   coinsView: {
     flex: 6,
-    backgroundColor: colors.lightGreen,
+    paddingHorizontal: 15,
   },
 
 });
