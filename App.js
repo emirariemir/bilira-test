@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import colors from './assets/colors/colors';
+import CircleButton from './assets/components/circle-button';
 
 export default function App() {
   return (
@@ -11,14 +12,14 @@ export default function App() {
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.topBarView}>
           <View style={styles.topBarLeft}>
-            <Icon name='menu' size={24} color={'#212121'}></Icon>
+            <Icon name='menu' size={24} color={colors.primaryBlack}></Icon>
           </View>
           <View style={styles.topBarLogo}>
             <Text style={styles.logoText}>BiLira</Text>
           </View>
           <View style={styles.topBarRight}>
-            <Icon name='search' size={24} color={'#212121'} style={styles.serachIcon}></Icon>
-            <Icon name='bell' size={24} color={'#212121'}></Icon>
+            <Icon name='search' size={24} color={colors.primaryBlack} style={styles.serachIcon}></Icon>
+            <Icon name='bell' size={24} color={colors.primaryBlack}></Icon>
           </View>
         </View>
       </SafeAreaView>
@@ -42,9 +43,38 @@ export default function App() {
         </View>
       </View>
 
-      <View style={styles.buttonsView}></View>
-      <View style={styles.inviteFriendView}></View>
-      <View style={styles.marketsView}></View>
+      {/* BUTTONS VIEW STARTS HERE ! */}
+      <View style={styles.buttonsView}>
+        <CircleButton iconName='download' title='Yatırma'/>
+        <CircleButton iconName='plus' title='Kripto Al'/>
+        <CircleButton iconName='send' title='Gönder'/>
+        <CircleButton iconName='target' title='OTC'/>
+        <CircleButton iconName='maximize' title='Tara'/>
+      </View>
+
+      {/* INVITE FRIEND STARTS HERE ! */}
+      <View style={styles.inviteFriendView}>
+        <View style={styles.mask}>
+          <Image source={require('./assets/images/Bg.png')} style={styles.bannerImage}/>
+        </View>
+        <View style={styles.overlayContent}>
+          <Text style={styles.overlayTitle}>Davet edin</Text>
+          <Text style={styles.overlayText}>Arkadaşlarınızı davet ederek TRYB ödülleri kazanın.</Text>
+        </View>
+        <View style={styles.overlayCloseButton}>
+          <Icon name='x' size={18} color={colors.primaryBlack}/>
+        </View>
+      </View>
+
+      {/* MARKETS VIEW STARTS HERE ! */}
+      <View style={styles.marketsView}>
+        <Text style={styles.piyasalarText}>Piyasalar</Text>
+        <View style={styles.categoryDropdown}>
+          <Text style={styles.categoryText}>Popüler</Text>
+          <Icon name='chevron-down' size={16} color={colors.primaryBlack}/>
+        </View>
+      </View>
+
       <View style={styles.coinsView}></View>
     </View>
   );
@@ -59,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  // 1 --
+  // 1 ---------------------------------------------
   topBarView: {
     flex: 1,
     flexDirection: 'row',
@@ -147,27 +177,91 @@ const styles = StyleSheet.create({
     color: colors.lightGrey,
   },
 
-
-
-  // 3 --
+  // 3 ---------------------------------------------
   buttonsView: {
     flex: 1.5,
-    backgroundColor: colors.purple,
+    flexDirection: 'row',
   },
 
-  // 4 --
+  // 4 ---------------------------------------------
   inviteFriendView: {
-    flex: 2,
-    backgroundColor: colors.red,
+    flex: 2.5,
+    justifyContent: 'center',
+    position: 'relative',
   },
 
-  // 5 --
+  mask: {
+    flex: 1,
+    margin: 15,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    overflow: 'hidden',
+    borderRadius: 12,
+  },
+
+  bannerImage: {
+    height: 117.6,
+    width: 423.6,
+  },
+
+  overlayContent: {
+    flex: 1,
+    position: 'absolute',
+    paddingLeft: 35,
+  },
+
+  overlayTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  
+  overlayText: {
+    fontSize: 14,
+    marginTop: 6,
+    marginRight: 170,
+  },
+
+  overlayCloseButton: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    padding: 4,
+    marginRight: 25,
+    marginTop: 25,
+    borderColor: colors.lighterGrey,
+    borderWidth: 1,
+    borderRadius: 64,
+    backgroundColor: colors.primaryWhite
+  },
+
+  // 5 ---------------------------------------------
   marketsView: {
     flex: 0.8,
-    backgroundColor: colors.blue,
+    marginHorizontal: 15,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
-  // 6 --
+  piyasalarText: {
+    fontSize: 16,
+    fontWeight: '700',
+  },
+
+  categoryDropdown: {
+    flexDirection: 'row',
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+    borderRadius: 64,
+    backgroundColor: colors.lighterGrey,
+  },
+
+  categoryText: {
+    paddingRight: 5,
+    fontWeight: '600',
+  },
+
+  // 6 ---------------------------------------------
   coinsView: {
     flex: 6,
     backgroundColor: colors.lightGreen,
