@@ -14,17 +14,34 @@ export default function App() {
             <Icon name='menu' size={24} color={'#212121'}></Icon>
           </View>
           <View style={styles.topBarLogo}>
-            <Text>BiLira</Text>
+            <Text style={styles.logoText}>BiLira</Text>
           </View>
           <View style={styles.topBarRight}>
-            <Icon name='search' size={24} color={'#212121'}></Icon>
+            <Icon name='search' size={24} color={'#212121'} style={styles.serachIcon}></Icon>
             <Icon name='bell' size={24} color={'#212121'}></Icon>
           </View>
         </View>
       </SafeAreaView>
 
       {/* BUDGET VIEW STARTS HERE ! */}
-      <View style={styles.budgetView}></View>
+      <View style={styles.budgetView}>
+        <View style={styles.budgetText}>
+          <Text style={styles.budgetGreetingText}>Varlıkların toplam değeri</Text>
+          <Icon name='eye' size={16} color={colors.lightGrey}/>
+        </View>
+        <View style={styles.budgetInfo}>
+          <View style={styles.budgetInfoElements}>
+            <Text style={styles.budgetAmountText}>4.883,98</Text>
+            <Text style={styles.trybText}>TRYB</Text>
+          </View>
+        </View>
+        <View style={styles.profitAmount}>
+          <Icon name='arrow-up-right' size={16} color={colors.primaryGreen}/>
+          <Text style={styles.percentText}>%1,60</Text>
+          <Text style={styles.changedAmountText}>(+324.10 TRYB)</Text>
+        </View>
+      </View>
+
       <View style={styles.buttonsView}></View>
       <View style={styles.inviteFriendView}></View>
       <View style={styles.marketsView}></View>
@@ -46,10 +63,9 @@ const styles = StyleSheet.create({
   topBarView: {
     flex: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
-    justifyContent: 'flex-start',
-    backgroundColor: colors.green,
+    paddingHorizontal: 15,
   },
 
   topBarLeft: {
@@ -62,39 +78,98 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start'
   },
 
+  logoText: {
+    fontSize: 20,
+    fontWeight: '600',
+  },
+
   topBarRight: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end'
   },
 
-  // 2 --
-  budgetView: {
-    flex: 1,
-    backgroundColor: colors.orange,
+  serachIcon: {
+    paddingRight: 15,
   },
+
+  // 2 ---------------------------------------------
+  budgetView: {
+    flex: 2,
+    paddingHorizontal: 15,
+  },
+
+  budgetText: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+
+  budgetGreetingText: {
+    paddingRight: 5,
+  },
+
+  budgetInfo: {
+    flex: 2,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+
+  budgetInfoElements: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+
+  budgetAmountText: {
+    fontSize: 36,
+    fontWeight: '700'
+  },
+
+  trybText: {
+    fontSize: 16,
+    paddingLeft: 10,
+    paddingBottom: 5,
+  },
+
+  profitAmount: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+
+  percentText: {
+    fontWeight: '600',
+    paddingLeft: 3,
+    paddingRight: 5,
+    color: colors.primaryGreen,
+  },
+
+  changedAmountText: {
+    color: colors.lightGrey,
+  },
+
+
 
   // 3 --
   buttonsView: {
-    flex: 1,
+    flex: 1.5,
     backgroundColor: colors.purple,
   },
 
   // 4 --
   inviteFriendView: {
-    flex: 1,
+    flex: 2,
     backgroundColor: colors.red,
   },
 
   // 5 --
   marketsView: {
-    flex: 1,
+    flex: 0.8,
     backgroundColor: colors.blue,
   },
 
   // 6 --
   coinsView: {
-    flex: 1,
+    flex: 6,
     backgroundColor: colors.lightGreen,
   },
 

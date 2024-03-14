@@ -5,6 +5,9 @@ const colors = {
     lightGreen: '#CFFFDC',
     red: '#D04848',
     orange: '#F3B95F',
+
+    lightGrey: '#6B7280',
+    primaryGreen: '#14B27C',
 }
 
 export default colors;
