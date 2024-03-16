@@ -4,7 +4,7 @@ import colors from '/Users/emir/BiLiraTest/assets/colors/colors.js';
 
 const screenWidth = Dimensions.get('window').width;
 
-const CircleButton = ({ iconName, title }) => {
+const CircleButton = ({ iconName, title, titleColor, buttonColor }) => {
     const buttonWidth = screenWidth * 0.1374;
     const ratio = 1;
     const buttonHeight = buttonWidth * ratio;
@@ -23,13 +23,14 @@ const CircleButton = ({ iconName, title }) => {
         height: buttonHeight,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.primaryBlue,
+        backgroundColor: buttonColor,
         borderRadius: 64,
       },
   
       titleStyle: {
         fontSize: 12,
         marginTop: 5,
+        color: titleColor,
       },
     });
   

@@ -1,32 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View, Dimensions, Image, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { SafeAreaView, StyleSheet, StatusBar, Text, View, Dimensions, Image, ScrollView, Appearance, useColorScheme } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import colors from './assets/colors/colors';
+import colors, { darkThemeColors, lightThemeColors } from './assets/colors/colors';
 import CircleButton from './assets/components/circle-button';
 import CoinCard from './assets/components/coin-card';
 import InteractiveIcon from './assets/components/interactive-icon';
 
 export default function App() {
+
+  const colorScheme = Appearance.getColorScheme();
+
+  const [isDarkMode, setIsDarkMode] = useState(colorScheme === 'dark');
+
+  const currentTheme = isDarkMode ? darkThemeColors : lightThemeColors;
+
+  useEffect(() => {
+    const subscription = Appearance.addChangeListener(({ colorScheme }) => {
+      setIsDarkMode(colorScheme === 'dark');
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
+  
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
   
   const handleIconPress = () => {
     console.log('Icon pressed!');
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor: currentTheme.background}]}>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}/>
 
       {/* TOP BAR VIEW STARTS HERE ! */}
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.topBarView}>
           <View style={styles.topBarLeft}>
-            <InteractiveIcon iconName={'menu'} onPress={handleIconPress}/>
+            <InteractiveIcon iconName={'menu'} onPress={toggleTheme} iconColor={currentTheme.textColor}/>
           </View>
           <View style={styles.topBarLogo}>
-            <Text style={styles.logoText}>BiLira</Text>
+            <Text style={[styles.logoText, {color: currentTheme.textColor}]}>BiLira</Text>
           </View>
           <View style={styles.topBarRight}>
-            <InteractiveIcon iconName={'search'} onPress={handleIconPress} rightMarginAmount={20}/>
-            <InteractiveIcon iconName={'bell'} onPress={handleIconPress}/>
+            <InteractiveIcon iconName={'search'} onPress={handleIconPress} rightMarginAmount={20} iconColor={currentTheme.textColor}/>
+            <InteractiveIcon iconName={'bell'} onPress={handleIconPress} iconColor={currentTheme.textColor}/>
           </View>
         </View>
       </SafeAreaView>
@@ -34,51 +55,51 @@ export default function App() {
       {/* BUDGET VIEW STARTS HERE ! */}
       <View style={styles.budgetView}>
         <View style={styles.budgetText}>
-          <Text style={styles.budgetGreetingText}>Varlıkların toplam değeri</Text>
-          <Icon name='eye' size={16} color={colors.lightGrey}/>
+          <Text style={[styles.budgetGreetingText, {color: currentTheme.textColor}]}>Varlıkların toplam değeri</Text>
+          <Icon name='eye' size={16} color={currentTheme.primaryGrey}/>
         </View>
         <View style={styles.budgetInfo}>
           <View style={styles.budgetInfoElements}>
-            <Text style={styles.budgetAmountText}>4.883,98</Text>
-            <Text style={styles.trybText}>TRYB</Text>
+            <Text style={[styles.budgetAmountText, {color: currentTheme.textColor}]}>4.883,98</Text>
+            <Text style={[styles.trybText, {color: currentTheme.textColor}]}>TRYB</Text>
           </View>
         </View>
         <View style={styles.profitAmount}>
-          <Icon name='arrow-up-right' size={16} color={colors.primaryGreen}/>
-          <Text style={styles.percentText}>%1,60</Text>
-          <Text style={styles.changedAmountText}>(+324.10 TRYB)</Text>
+          <Icon name='arrow-up-right' size={16} color={currentTheme.primaryGreen}/>
+          <Text style={[styles.percentText, {color: currentTheme.primaryGreen}]}>%1,60</Text>
+          <Text style={[styles.changedAmountText, {color: currentTheme.primaryGrey}]}>(+324.10 TRYB)</Text>
         </View>
       </View>
 
       {/* BUTTONS VIEW STARTS HERE ! */}
       <View style={styles.buttonsView}>
-        <CircleButton iconName='download' title='Yatırma'/>
-        <CircleButton iconName='plus' title='Kripto Al'/>
-        <CircleButton iconName='send' title='Gönder'/>
-        <CircleButton iconName='target' title='OTC'/>
-        <CircleButton iconName='maximize' title='Tara'/>
+        <CircleButton iconName='download' title='Yatırma' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='plus' title='Kripto Al' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='send' title='Gönder' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='target' title='OTC' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='maximize' title='Tara' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
       </View>
 
       {/* INVITE FRIEND STARTS HERE ! */}
       <View style={styles.inviteFriendView}>
         <View style={styles.mask}>
-          <Image source={require('./assets/images/Bg.png')} style={styles.bannerImage}/>
+          <Image source={isDarkMode ? require('./assets/images/Bg-dark.png') : require('./assets/images/Bg.png')} style={styles.bannerImage}/>
         </View>
         <View style={styles.overlayContent}>
-          <Text style={styles.overlayTitle}>Davet edin</Text>
-          <Text style={styles.overlayText}>Arkadaşlarınızı davet ederek TRYB ödülleri kazanın.</Text>
+          <Text style={[styles.overlayTitle, {color: currentTheme.textColor}]}>Davet edin</Text>
+          <Text style={[styles.overlayText, {color: currentTheme.textColor}]}>Arkadaşlarınızı davet ederek TRYB ödülleri kazanın.</Text>
         </View>
-        <View style={styles.overlayCloseButton}>
-          <Icon name='x' size={18} color={colors.primaryBlack}/>
+        <View style={[styles.overlayCloseButton, {backgroundColor: currentTheme.background}]}>
+          <Icon name='x' size={18} color={currentTheme.textColor}/>
         </View>
       </View>
 
       {/* MARKETS VIEW STARTS HERE ! */}
       <View style={styles.marketsView}>
-        <Text style={styles.piyasalarText}>Piyasalar</Text>
-        <View style={styles.categoryDropdown}>
-          <Text style={styles.categoryText}>Popüler</Text>
-          <Icon name='chevron-down' size={16} color={colors.primaryBlack}/>
+        <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Piyasalar</Text>
+        <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+          <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Popüler</Text>
+          <Icon name='chevron-down' size={16} color={currentTheme.textColor}/>
         </View>
       </View>
 
@@ -86,13 +107,13 @@ export default function App() {
       <View style={styles.coinsView}>
         <SafeAreaView>
           <ScrollView>
-            <CoinCard coinTag={'ETH'} coinName={'Ethereum'} graphName={'trending-up'} graphColor={colors.primaryGreen} price={'2,208.00'} arrowIconName={'arrow-up-right'} percentage={'%2.68'} />
-            <CoinCard coinTag={'AVAX'} coinName={'Avalanche'} graphName={'trending-down'} graphColor={colors.red} price={'225.71'} arrowIconName={'arrow-down-right'} percentage={'%1.60'} />
-            <CoinCard coinTag={'MATIC'} coinName={'Polygon'} graphName={'trending-up'} graphColor={colors.primaryGreen} price={'15.21'} arrowIconName={'arrow-up-right'} percentage={'%0.73'} />
-            <CoinCard coinTag={'SOL'} coinName={'Solana'} graphName={'trending-up'} graphColor={colors.primaryGreen} price={'167.26'} arrowIconName={'arrow-up-right'} percentage={'%6.54'} />
-            <CoinCard coinTag={'BTC'} coinName={'Bitcoin'} graphName={'trending-down'} graphColor={colors.red} price={'70,786.00'} arrowIconName={'arrow-down-right'} percentage={'%2.63'} />
-            <CoinCard coinTag={'TRX'} coinName={'Tron'} graphName={'trending-down'} graphColor={colors.red} price={'0.13'} arrowIconName={'arrow-down-right'} percentage={'%2.03'} />
-            <CoinCard coinTag={'ADA'} coinName={'Cardano'} graphName={'trending-up'} graphColor={colors.primaryGreen} price={'0.74'} arrowIconName={'arrow-up-right'} percentage={'%0.12'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'ETH'} coinName={'Ethereum'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'2,208.00'} arrowIconName={'arrow-up-right'} percentage={'%2.68'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'AVAX'} coinName={'Avalanche'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'225.71'} arrowIconName={'arrow-down-right'} percentage={'%1.60'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'MATIC'} coinName={'Polygon'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'15.21'} arrowIconName={'arrow-up-right'} percentage={'%0.73'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'SOL'} coinName={'Solana'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'167.26'} arrowIconName={'arrow-up-right'} percentage={'%6.54'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'BTC'} coinName={'Bitcoin'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'70,786.00'} arrowIconName={'arrow-down-right'} percentage={'%2.63'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'TRX'} coinName={'Tron'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'0.13'} arrowIconName={'arrow-down-right'} percentage={'%2.03'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'ADA'} coinName={'Cardano'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'0.74'} arrowIconName={'arrow-up-right'} percentage={'%0.12'} />
           </ScrollView>
         </SafeAreaView>
       </View>
@@ -107,6 +128,10 @@ const styles = StyleSheet.create({
   },
 
   safeArea: {
+    flex: 1,
+  },
+
+  contentContainer: {
     flex: 1,
   },
 

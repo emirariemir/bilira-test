@@ -5,19 +5,19 @@ import colors from '/Users/emir/BiLiraTest/assets/colors/colors.js';
 const screenHeight = Dimensions.get('window').height;
 const cardHeight = screenHeight * 0.07746478873;
 
-const CoinCard = ({ coinTag, coinName, graphName, graphColor, price, arrowIconName, percentage }) => {
+const CoinCard = ({ coinColor, coinTag, coinName, textColor, graphName, graphColor, price, arrowIconName, percentage }) => {
     return (
         <View style={cardStyle.coinCard}>
           <View style={cardStyle.coinImage}>
-            <View style={cardStyle.image}></View>
+            <View style={[cardStyle.image, {backgroundColor: coinColor}]}></View>
           </View>
           <View style={cardStyle.coinInfo}>
             <View style={cardStyle.coinTag}>
-                <Text style={{fontWeight: '700', fontSize: 16}}>{coinTag}</Text>
-                <Text style={{fontSize: 12}}> / USDT</Text>
+                <Text style={{fontWeight: '700', fontSize: 16, color: textColor}}>{coinTag}</Text>
+                <Text style={{fontSize: 12, color: textColor}}> / USDT</Text>
             </View>
             <View style={cardStyle.coinName}>
-                <Text>{coinName}</Text>
+                <Text style={{color: textColor}}>{coinName}</Text>
             </View>
           </View>
           <View style={cardStyle.graph}>
@@ -25,8 +25,8 @@ const CoinCard = ({ coinTag, coinName, graphName, graphColor, price, arrowIconNa
           </View>
           <View style={cardStyle.priceInfo}>
             <View style={cardStyle.currentPrice}>
-                <Text style={{fontSize: 16, fontWeight: '700'}}>{price}</Text>
-                <Text style={{fontSize: 12}}> USDT</Text>
+                <Text style={{fontSize: 16, fontWeight: '700', color: textColor}}>{price}</Text>
+                <Text style={{fontSize: 12, color: textColor}}> USDT</Text>
             </View>
             <View style={cardStyle.percentage}>
                 <Icon name={arrowIconName} size={20} color={graphColor}/>
