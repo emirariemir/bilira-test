@@ -13,8 +13,12 @@
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-native": "0.73.5",
+    "react-native-sparkline": "^2.0.0-beta",
+    "react-native-svg": "14.1.0",
     "react-native-vector-icons": "^10.0.3",
-    "react-native-svg": "14.1.0"
+    "react-sparklines": "^1.7.0",
+    "react-native-reanimated": "~3.6.2",
+    "react-native-gesture-handler": "~2.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

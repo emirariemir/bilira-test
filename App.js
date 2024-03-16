@@ -4,8 +4,14 @@ import Icon from 'react-native-vector-icons/Feather';
 import colors from './assets/colors/colors';
 import CircleButton from './assets/components/circle-button';
 import CoinCard from './assets/components/coin-card';
+import InteractiveIcon from './assets/components/interactive-icon';
 
 export default function App() {
+  
+  const handleIconPress = () => {
+    console.log('Icon pressed!');
+  };
+
   return (
     <View style={styles.container}>
 
@@ -13,14 +19,14 @@ export default function App() {
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.topBarView}>
           <View style={styles.topBarLeft}>
-            <Icon name='menu' size={24} color={colors.primaryBlack}></Icon>
+            <InteractiveIcon iconName={'menu'} onPress={handleIconPress}/>
           </View>
           <View style={styles.topBarLogo}>
             <Text style={styles.logoText}>BiLira</Text>
           </View>
           <View style={styles.topBarRight}>
-            <Icon name='search' size={24} color={colors.primaryBlack} style={styles.serachIcon}></Icon>
-            <Icon name='bell' size={24} color={colors.primaryBlack}></Icon>
+            <InteractiveIcon iconName={'search'} onPress={handleIconPress} rightMarginAmount={20}/>
+            <InteractiveIcon iconName={'bell'} onPress={handleIconPress}/>
           </View>
         </View>
       </SafeAreaView>
@@ -115,6 +121,8 @@ const styles = StyleSheet.create({
 
   topBarLeft: {
     flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
   },
 
   topBarLogo: {
