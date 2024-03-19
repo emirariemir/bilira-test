@@ -1,10 +1,10 @@
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import colors from '/Users/emir/BiLiraTest/assets/colors/colors.js';
+import colors from '../../assets/colors/colors.js';
 
 const screenWidth = Dimensions.get('window').width;
 
-const CircleButton = ({ iconName, title, titleColor, buttonColor }) => {
+const CircleButton = ({ iconName, title, titleColor, buttonColor, fontFamily }) => {
     const buttonWidth = screenWidth * 0.1374;
     const ratio = 1;
     const buttonHeight = buttonWidth * ratio;
@@ -29,6 +29,7 @@ const CircleButton = ({ iconName, title, titleColor, buttonColor }) => {
   
       titleStyle: {
         fontSize: 12,
+        fontFamily: fontFamily,
         marginTop: 5,
         color: titleColor,
       },

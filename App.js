@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, StyleSheet, StatusBar, Text, View, Dimensions, Image, ScrollView, Appearance, useColorScheme } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar, Text, View, Image, ScrollView, Appearance, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import colors, { darkThemeColors, lightThemeColors } from './assets/colors/colors';
 import CircleButton from './assets/components/circle-button';
@@ -46,6 +46,8 @@ export default function App() {
 
   return (
     <View style={[styles.container, {backgroundColor: currentTheme.background}]}>
+      
+
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}/>
 
       {/* TOP BAR VIEW STARTS HERE ! */}
@@ -63,6 +65,8 @@ export default function App() {
           </View>
         </View>
       </SafeAreaView>
+
+      <ScrollView>
 
       {/* BUDGET VIEW STARTS HERE ! */}
       <View style={styles.budgetView}>
@@ -85,11 +89,11 @@ export default function App() {
 
       {/* BUTTONS VIEW STARTS HERE ! */}
       <View style={styles.buttonsView}>
-        <CircleButton iconName='download' title='Yatırma' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
-        <CircleButton iconName='plus' title='Kripto Al' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
-        <CircleButton iconName='send' title='Gönder' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
-        <CircleButton iconName='target' title='OTC' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
-        <CircleButton iconName='maximize' title='Tara' titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='download' title='Yatırma' fontFamily={'Archivo-Regular'} titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='plus' title='Kripto Al' fontFamily={'Archivo-Regular'} titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='send' title='Gönder' fontFamily={'Archivo-Regular'} titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='target' title='OTC' fontFamily={'Archivo-Regular'} titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
+        <CircleButton iconName='maximize' title='Tara' fontFamily={'Archivo-Regular'} titleColor={currentTheme.textColor} buttonColor={currentTheme.primaryBlue}/>
       </View>
 
       {/* INVITE FRIEND STARTS HERE ! */}
@@ -130,9 +134,51 @@ export default function App() {
         </SafeAreaView>
       </View>
 
+      <View style={styles.inviteFriendView}>
+        <View style={styles.mask}>
+          <Image source={isDarkMode ? require('./assets/images/Bg-dark.png') : require('./assets/images/Bg.png')} style={styles.bannerImage}/>
+        </View>
+        <View style={styles.overlayContent}>
+          <Text style={[styles.overlayTitle, {color: currentTheme.textColor}]}>Davet edin</Text>
+          <Text style={[styles.overlayText, {color: currentTheme.textColor}]}>Arkadaşlarınızı davet ederek TRYB ödülleri kazanın.</Text>
+        </View>
+        <View style={[styles.overlayCloseButton, {backgroundColor: currentTheme.background}]}>
+          <Icon name='x' size={18} color={currentTheme.textColor}/>
+        </View>
+      </View>
+
+      {/* MARKETS VIEW STARTS HERE ! */}
+      <View style={styles.marketsView}>
+        <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Piyasalar</Text>
+        <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+          <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Popüler</Text>
+          <Icon name='chevron-down' size={16} color={currentTheme.textColor}/>
+        </View>
+      </View>
+
+      {/* COINS VIEW STARTS HERE ! */}
+      <View style={styles.coinsView}>
+        <SafeAreaView>
+          <ScrollView>
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'ETH'} coinName={'Ethereum'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'2,208.00'} arrowIconName={'arrow-up-right'} percentage={'%2.68'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'AVAX'} coinName={'Avalanche'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'225.71'} arrowIconName={'arrow-down-right'} percentage={'%1.60'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'MATIC'} coinName={'Polygon'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'15.21'} arrowIconName={'arrow-up-right'} percentage={'%0.73'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'SOL'} coinName={'Solana'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'167.26'} arrowIconName={'arrow-up-right'} percentage={'%6.54'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'BTC'} coinName={'Bitcoin'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'70,786.00'} arrowIconName={'arrow-down-right'} percentage={'%2.63'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'TRX'} coinName={'Tron'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'0.13'} arrowIconName={'arrow-down-right'} percentage={'%2.03'} />
+            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'ADA'} coinName={'Cardano'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'0.74'} arrowIconName={'arrow-up-right'} percentage={'%0.12'} />
+          </ScrollView>
+        </SafeAreaView>
+      </View>
+
+      </ScrollView>
+
     </View>
   );
 }
+
+const screenHeight = Dimensions.get('window').height;
+const refHeight = screenHeight / 13.8
 
 const styles = StyleSheet.create({
   container: {
@@ -140,16 +186,11 @@ const styles = StyleSheet.create({
   },
 
   safeArea: {
-    flex: 1,
-  },
-
-  contentContainer: {
-    flex: 1,
   },
 
   // 1 ---------------------------------------------
   topBarView: {
-    flex: 1,
+    height: refHeight * 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -185,7 +226,7 @@ const styles = StyleSheet.create({
 
   // 2 ---------------------------------------------
   budgetView: {
-    flex: 2,
+    height: refHeight * 2,
     paddingHorizontal: 15,
   },
 
@@ -197,6 +238,7 @@ const styles = StyleSheet.create({
 
   budgetGreetingText: {
     paddingRight: 5,
+    fontFamily: 'Archivo-Regular'
   },
 
   budgetInfo: {
@@ -217,6 +259,7 @@ const styles = StyleSheet.create({
 
   trybText: {
     fontSize: 16,
+    fontFamily: 'Archivo-Regular',
     paddingLeft: 10,
     paddingBottom: 5,
   },
@@ -227,32 +270,34 @@ const styles = StyleSheet.create({
   },
 
   percentText: {
-    fontWeight: '600',
+    fontFamily: 'Archivo-SemiBold',
     paddingLeft: 3,
     paddingRight: 5,
     color: colors.primaryGreen,
   },
 
   changedAmountText: {
+    fontFamily: 'Archivo-Regular',
     color: colors.lightGrey,
   },
 
   // 3 ---------------------------------------------
   buttonsView: {
-    flex: 1.5,
+    height: refHeight * 1.5,
     flexDirection: 'row',
   },
 
   // 4 ---------------------------------------------
   inviteFriendView: {
-    flex: 2.5,
+    flex: refHeight * 2.5,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     justifyContent: 'center',
     position: 'relative',
   },
 
   mask: {
     flex: 1,
-    margin: 15,
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
     overflow: 'hidden',
@@ -272,11 +317,12 @@ const styles = StyleSheet.create({
 
   overlayTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: 'Archivo-SemiBold',
   },
   
   overlayText: {
     fontSize: 14,
+    fontFamily: 'Archivo-Regular',
     marginTop: 6,
     marginRight: 170,
   },
@@ -296,7 +342,7 @@ const styles = StyleSheet.create({
 
   // 5 ---------------------------------------------
   marketsView: {
-    flex: 0.8,
+    height: refHeight * 0.8,
     marginHorizontal: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -305,7 +351,7 @@ const styles = StyleSheet.create({
 
   piyasalarText: {
     fontSize: 16,
-    fontWeight: '700',
+    fontFamily: 'Archivo-Bold',
   },
 
   categoryDropdown: {
@@ -318,12 +364,12 @@ const styles = StyleSheet.create({
 
   categoryText: {
     paddingRight: 5,
-    fontWeight: '600',
+    fontFamily: 'Archivo-SemiBold'
   },
 
   // 6 ---------------------------------------------
   coinsView: {
-    flex: 6,
+    height: refHeight * 6,
     paddingHorizontal: 15,
   },
 
