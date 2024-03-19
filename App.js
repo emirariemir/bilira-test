@@ -5,8 +5,20 @@ import colors, { darkThemeColors, lightThemeColors } from './assets/colors/color
 import CircleButton from './assets/components/circle-button';
 import CoinCard from './assets/components/coin-card';
 import InteractiveIcon from './assets/components/interactive-icon';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+
+  const [fontsLoaded, fontError] = useFonts({
+    'Archivo-Bold': require('./assets/fonts/Archivo-Bold.ttf'),
+    'Archivo-ExtraBold': require('./assets/fonts/Archivo-ExtraBold.ttf'),
+    'Archivo-ExtraLight': require('./assets/fonts/Archivo-ExtraLight.ttf'),
+    'Archivo-Light': require('./assets/fonts/Archivo-Light.ttf'),
+    'Archivo-Medium': require('./assets/fonts/Archivo-Medium.ttf'),
+    'Archivo-Regular': require('./assets/fonts/Archivo-Regular.ttf'),
+    'Archivo-SemiBold': require('./assets/fonts/Archivo-SemiBold.ttf'),
+    'Archivo-Thin': require('./assets/fonts/Archivo-Thin.ttf'),
+  });
 
   const colorScheme = Appearance.getColorScheme();
 
@@ -40,7 +52,7 @@ export default function App() {
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.topBarView}>
           <View style={styles.topBarLeft}>
-            <InteractiveIcon iconName={'menu'} onPress={toggleTheme} iconColor={currentTheme.textColor}/>
+            <InteractiveIcon iconName={isDarkMode ? 'sun' : 'moon'} onPress={toggleTheme} iconColor={currentTheme.textColor}/>
           </View>
           <View style={styles.topBarLogo}>
             <Text style={[styles.logoText, {color: currentTheme.textColor}]}>BiLira</Text>
@@ -200,7 +212,7 @@ const styles = StyleSheet.create({
 
   budgetAmountText: {
     fontSize: 36,
-    fontWeight: '700'
+    fontFamily: 'Archivo-Bold',
   },
 
   trybText: {
