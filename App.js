@@ -6,6 +6,7 @@ import CircleButton from './assets/components/circle-button';
 import CoinCard from './assets/components/coin-card';
 import InteractiveIcon from './assets/components/interactive-icon';
 import { useFonts } from 'expo-font';
+import CustomButton from './assets/components/custom-button';
 
 export default function App() {
 
@@ -121,7 +122,7 @@ export default function App() {
 
       {/* COINS VIEW STARTS HERE ! */}
       <View style={styles.coinsView}>
-        <SafeAreaView>
+        
           <ScrollView>
             <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'ETH'} coinName={'Ethereum'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'2,208.00'} arrowIconName={'arrow-up-right'} percentage={'%2.68'} />
             <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'AVAX'} coinName={'Avalanche'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'225.71'} arrowIconName={'arrow-down-right'} percentage={'%1.60'} />
@@ -131,44 +132,35 @@ export default function App() {
             <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'TRX'} coinName={'Tron'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'0.13'} arrowIconName={'arrow-down-right'} percentage={'%2.03'} />
             <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'ADA'} coinName={'Cardano'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'0.74'} arrowIconName={'arrow-up-right'} percentage={'%0.12'} />
           </ScrollView>
-        </SafeAreaView>
+        
       </View>
 
-      <View style={styles.inviteFriendView}>
-        <View style={styles.mask}>
-          <Image source={isDarkMode ? require('./assets/images/Bg-dark.png') : require('./assets/images/Bg.png')} style={styles.bannerImage}/>
-        </View>
-        <View style={styles.overlayContent}>
-          <Text style={[styles.overlayTitle, {color: currentTheme.textColor}]}>Davet edin</Text>
-          <Text style={[styles.overlayText, {color: currentTheme.textColor}]}>Arkadaşlarınızı davet ederek TRYB ödülleri kazanın.</Text>
-        </View>
-        <View style={[styles.overlayCloseButton, {backgroundColor: currentTheme.background}]}>
-          <Icon name='x' size={18} color={currentTheme.textColor}/>
-        </View>
-      </View>
-
-      {/* MARKETS VIEW STARTS HERE ! */}
       <View style={styles.marketsView}>
-        <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Piyasalar</Text>
+        <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Components</Text>
         <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
-          <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Popüler</Text>
-          <Icon name='chevron-down' size={16} color={currentTheme.textColor}/>
+          <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Large</Text>
         </View>
       </View>
+      
+      <View style={styles.componentDisplay}>
+        <CustomButton title={'Button'} buttonColor={colors.primaryBlue500}/>
+        <CustomButton isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500}/>
+        <CustomButton isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500}/>
+        <CustomButton isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500}/>
+      </View>
 
-      {/* COINS VIEW STARTS HERE ! */}
-      <View style={styles.coinsView}>
-        <SafeAreaView>
-          <ScrollView>
-            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'ETH'} coinName={'Ethereum'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'2,208.00'} arrowIconName={'arrow-up-right'} percentage={'%2.68'} />
-            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'AVAX'} coinName={'Avalanche'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'225.71'} arrowIconName={'arrow-down-right'} percentage={'%1.60'} />
-            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'MATIC'} coinName={'Polygon'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'15.21'} arrowIconName={'arrow-up-right'} percentage={'%0.73'} />
-            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'SOL'} coinName={'Solana'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'167.26'} arrowIconName={'arrow-up-right'} percentage={'%6.54'} />
-            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'BTC'} coinName={'Bitcoin'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'70,786.00'} arrowIconName={'arrow-down-right'} percentage={'%2.63'} />
-            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'TRX'} coinName={'Tron'} textColor={currentTheme.textColor} graphName={'trending-down'} graphColor={currentTheme.primaryRed} price={'0.13'} arrowIconName={'arrow-down-right'} percentage={'%2.03'} />
-            <CoinCard coinColor={currentTheme.primaryBlue} coinTag={'ADA'} coinName={'Cardano'} textColor={currentTheme.textColor} graphName={'trending-up'} graphColor={currentTheme.primaryGreen} price={'0.74'} arrowIconName={'arrow-up-right'} percentage={'%0.12'} />
-          </ScrollView>
-        </SafeAreaView>
+      <View style={styles.componentDisplay}>
+        <CustomButton title={'Button'} buttonColor={colors.primaryBlue600}/>
+        <CustomButton isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600}/>
+        <CustomButton isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600}/>
+        <CustomButton isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600}/>
+      </View>
+
+      <View style={styles.componentDisplay}>
+        <CustomButton title={'Button'} buttonColor={colors.primaryBlue100}/>
+        <CustomButton isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100}/>
+        <CustomButton isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100}/>
+        <CustomButton isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100}/>
       </View>
 
       </ScrollView>
@@ -371,6 +363,14 @@ const styles = StyleSheet.create({
   coinsView: {
     height: refHeight * 6,
     paddingHorizontal: 15,
+    marginBottom: 20,
+    paddingBottom: 15,
+  },
+
+  componentDisplay: {
+    flexDirection: 'row',
+    paddingHorizontal: 15,
+    justifyContent: 'space-between',
   },
 
 });

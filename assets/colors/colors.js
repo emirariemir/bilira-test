@@ -19,6 +19,28 @@ const colors = {
     darkModeBlack: '#000000',
     darkModeRed: '#DF5F6E',
     darkModeLightGrey: '#C3C5CB',
+
+    primaryDarkBlue50: '#DFDFF1',
+    primaryDarkBlue100: '#AEADDE',
+    primaryDarkBlue200: '#7877C8',
+    primaryDarkBlue300: '#4846AC',
+    primaryDarkBlue400: '#363481',
+    primaryDarkBlue500: '#25245C',
+    primaryDarkBlue600: '#212053',
+    primaryDarkBlue700: '#1B1A45',
+    primaryDarkBlue800: '#131338',
+    primaryDarkBlue900: '#0C0A24',
+
+    primaryBlue50: '#E2EDFE',
+    primaryBlue100: '#B3D1FE',
+    primaryBlue200: '#81B3FC',
+    primaryBlue300: '#5195FB',
+    primaryBlue400: '#287CFB',
+    primaryBlue500: '#0066FF',
+    primaryBlue600: '#005EEE',
+    primaryBlue700: '#0056D4',
+    primaryBlue800: '#004BB9',
+    primaryBlue900: '##023B94',
 }
 
 export const lightThemeColors = {
