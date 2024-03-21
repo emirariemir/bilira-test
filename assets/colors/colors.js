@@ -41,6 +41,13 @@ const colors = {
     primaryBlue700: '#0056D4',
     primaryBlue800: '#004BB9',
     primaryBlue900: '##023B94',
+
+    lightTheme200: '#F9FAFB',
+    lightTheme300: '#EEF0F3',
+    lightTheme400: '#E7E9EE',
+    lightTheme500: '#CFD4DD',
+    lightTheme600: '#A4AEC0',
+    lightTheme900: '#061024',
 }
 
 export const lightThemeColors = {
