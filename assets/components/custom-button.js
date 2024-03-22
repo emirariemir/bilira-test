@@ -9,7 +9,7 @@ const screenHeight = Dimensions.get('window').height;
 const buttonHeightRatio = 15.7777777778;
 const textSizeRatio = 65.5384615385;
 
-const CustomButton = ( { title, isIconLeft, iconLeft, isIconRight, iconRight, size, type, state} ) => {
+const CustomButton = ( { title, isIconLeft, iconLeft, isIconRight, iconRight, size, type, state, icon} ) => {
 
     const [isDisabled, setIsDisabled] = useState(false);
 
@@ -251,9 +251,11 @@ const CustomButton = ( { title, isIconLeft, iconLeft, isIconRight, iconRight, si
                 <TouchableOpacity onPress={handlePress} activeOpacity={1.0}>
                     <View style={customButtonStyles.buttonBackground}>
                         <View style={customButtonStyles.buttonContent}>
+                            {icon && <View style={customButtonStyles.iconLeft}>{icon}</View>}
                             <Icon style={isIconLeft === 'true' ? customButtonStyles.iconLeft : customButtonStyles.blank} name={isIconLeft === 'true' ? iconLeft : ''} size={18} color={iconColor}/>
                             <Text style={typeof title !== 'string' ? customButtonStyles.blank : customButtonStyles.titleStyle}>{title}</Text>
                             <Icon style={isIconRight === 'true' ? customButtonStyles.iconRight : customButtonStyles.blank} name={isIconRight === 'true' ? iconRight : ''} size={18} color={iconColor}/>
+                            {icon && <View style={customButtonStyles.iconRight}>{icon}</View>}
                         </View>
                     </View>
                 </TouchableOpacity>
