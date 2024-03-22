@@ -330,6 +330,267 @@ export default function App() {
           <CustomButton type={'bordered'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'s'}/>
         </View>
 
+        {/* BZELED GRAY LARGE COMPONENTS STARTS HERE ! ---------------------------------------------------------- */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled Gray</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Large</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+        </View>
+
+        {/* MEDIUM COMPONENTS STARTS HERE ! */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled Gray</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Medium</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'md'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'md'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'md'}/>
+        </View>
+
+        {/* SMALL COMPONENTS STARTS HERE ! */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled Gray</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Small</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'s'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'s'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled-gray'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'s'}/>
+        </View>
+
+        {/* BZELED GRAY 2 LARGE COMPONENTS STARTS HERE ! ---------------------------------------------------------- */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled Gray 2</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Large</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+        </View>
+
+        {/* MEDIUM COMPONENTS STARTS HERE ! */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled Gray 2</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Medium</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'md'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'md'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'md'}/>
+        </View>
+
+        {/* SMALL COMPONENTS STARTS HERE ! */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled Gray 2</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Small</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'s'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'s'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled-gray-2'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'s'}/>
+        </View>
+
+        {/* BZELED LARGE COMPONENTS STARTS HERE ! ---------------------------------------------------------- */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Large</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'xl'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'xl'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'xl'}/>
+        </View>
+
+        {/* MEDIUM COMPONENTS STARTS HERE ! */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Medium</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'md'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'md'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'md'}/>
+        </View>
+
+        {/* SMALL COMPONENTS STARTS HERE ! */}
+        <View style={styles.marketsView}>
+          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Bazeled</Text>
+          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
+            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>Small</Text>
+          </View>
+        </View>
+      
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'default'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'s'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'s'}/>
+        </View>
+
+        <View style={styles.componentDisplay}>
+          <CustomButton type={'bazeled'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
+          <CustomButton type={'bazeled'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'s'}/>
+        </View>
+
       </ScrollView>
 
     </View>
