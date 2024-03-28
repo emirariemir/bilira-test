@@ -9,14 +9,15 @@ const screenHeight = Dimensions.get('window').height;
 const buttonHeightRatio = 15.7777777778;
 const textSizeRatio = 65.5384615385;
 
-const CustomButton = ( { title, isIconLeft, iconLeft, isIconRight, iconRight, size, type, state, icon} ) => {
+const CustomButton = ( { title, isIconLeft, iconLeft, isIconRight, iconRight, size, type, state, icon, onPress} ) => {
 
     const [isDisabled, setIsDisabled] = useState(false);
 
     const handlePress = () => {
         if (!isDisabled) {
             setIsDisabled(true),
-            setTimeout(() => {setIsDisabled(false)}, 2000);
+            onPress();
+            setTimeout(() => {setIsDisabled(false)}, 1000);
         }
     }
 

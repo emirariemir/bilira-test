@@ -8,6 +8,8 @@ import InteractiveIcon from './assets/components/interactive-icon';
 import { useFonts } from 'expo-font';
 import CustomButton from './assets/components/custom-button';
 import CustomTextField from './assets/components/custom-text-field';
+import { useSharedValue, useAnimatedStyle, withTiming, withSpring } from 'react-native-reanimated';
+import CustomBottomSheet from './assets/components/custom-bottom-sheet';
 
 export default function App() {
 
@@ -23,9 +25,7 @@ export default function App() {
   });
 
   const colorScheme = Appearance.getColorScheme();
-
   const [isDarkMode, setIsDarkMode] = useState(colorScheme === 'dark');
-
   const currentTheme = isDarkMode ? darkThemeColors : lightThemeColors;
 
   useEffect(() => {
@@ -41,10 +41,24 @@ export default function App() {
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
   };
-  
-  const handleIconPress = () => {
-    console.log('Icon pressed!');
+
+  {/* ANIMATION LOGIC HERE ! --------------------------------------------------------------------- */}
+
+  const [isOpen, setIsOpen] = useState(false);
+  const translateY = useSharedValue(0);
+
+  const toggleBottomSheet = () => {
+    translateY.value = withSpring(isOpen ? 100 : 500);
+    setIsOpen(!isOpen);
   };
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: translateY.value }],
+    };
+  });
+
+  {/* ANIMATION LOGIC ENDS HERE ! ---------------------------------------------------------------- */}
 
   return (
     <View style={[styles.container, {backgroundColor: currentTheme.background}]}>
@@ -63,8 +77,8 @@ export default function App() {
             <Text style={[styles.logoText, {color: currentTheme.textColor}]}>BiLira</Text>
           </View>
           <View style={styles.topBarRight}>
-            <InteractiveIcon iconName={'search'} onPress={handleIconPress} rightMarginAmount={20} iconColor={currentTheme.textColor}/>
-            <InteractiveIcon iconName={'bell'} onPress={handleIconPress} iconColor={currentTheme.textColor}/>
+            <InteractiveIcon iconName={'search'} rightMarginAmount={20} iconColor={currentTheme.textColor}/>
+            <InteractiveIcon iconName={'bell'} iconColor={currentTheme.textColor}/>
           </View>
         </View>
 
@@ -72,14 +86,15 @@ export default function App() {
 
       <ScrollView>
 
-      <View style={styles.marketsView}>
-          <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Text Field</Text>
-          <View style={[styles.categoryDropdown, {backgroundColor: currentTheme.dropdownColor}]}>
-            <Text style={[styles.categoryText, {color: currentTheme.textColor}]}>IBAN</Text>
-          </View>
-        </View>
+        <CustomButton type={'primary'} state={'default'} title={'Invoke bottom sheet'} buttonColor={colors.primaryBlue500} size={'xl'} onPress={toggleBottomSheet}></CustomButton>
 
-        <CustomTextField></CustomTextField>
+        <CustomTextField type={'IBAN'}></CustomTextField>
+
+        <CustomTextField type={'amount'}></CustomTextField>
+
+        <CustomTextField type={'accountTitle'}></CustomTextField>
+
+        <CustomTextField type={'emailVerification'}></CustomTextField>
 
         
         {/* LARGE COMPONENTS STARTS HERE ! */}
@@ -97,20 +112,6 @@ export default function App() {
           <CustomButton type={'primary'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'xl'}/>
         </View>
 
-        <View style={styles.componentDisplay}>
-          <CustomButton type={'primary'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'xl'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'xl'}/>
-        </View>
-
-        <View style={styles.componentDisplay}>
-          <CustomButton type={'primary'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'xl'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'xl'}/>
-        </View>
-
         {/* MEDIUM COMPONENTS STARTS HERE ! */}
         <View style={styles.marketsView}>
           <Text style={[styles.piyasalarText, {color: currentTheme.textColor}]}>Primary</Text>
@@ -124,20 +125,6 @@ export default function App() {
           <CustomButton type={'primary'} state={'default'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
           <CustomButton type={'primary'} state={'default'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue500} size={'md'}/>
           <CustomButton type={'primary'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'md'}/>
-        </View>
-
-        <View style={styles.componentDisplay}>
-          <CustomButton type={'primary'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'md'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'md'}/>
-        </View>
-
-        <View style={styles.componentDisplay}>
-          <CustomButton type={'primary'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'md'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'md'}/>
         </View>
 
         {/* SMALL COMPONENTS STARTS HERE ! */}
@@ -155,21 +142,9 @@ export default function App() {
           <CustomButton type={'primary'} state={'default'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue500} size={'s'}/>
         </View>
 
-        <View style={styles.componentDisplay}>
-          <CustomButton type={'primary'} state={'hover'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue600} size={'s'}/>
-          <CustomButton type={'primary'} state={'hover'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue600} size={'s'}/>
-        </View>
-
-        <View style={styles.componentDisplay}>
-          <CustomButton type={'primary'} state={'disabled'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconRight={'true'} iconRight={'box'} title={'Button'} buttonColor={colors.primaryBlue100} size={'s'}/>
-          <CustomButton type={'primary'} state={'disabled'} isIconLeft={'true'} iconLeft={'box'} buttonColor={colors.primaryBlue100} size={'s'}/>
-        </View>
-
       </ScrollView>
+
+      <CustomBottomSheet animatedStyleProp={animatedStyle} />
 
     </View>
   );
